@@ -8,4 +8,4 @@ def insertion_sort(tab: list[int]):
             j -= 1
         swaps += 1
         tab[j + 1] = k
-    return swaps
+    return tab
