@@ -4,7 +4,7 @@ from lab3.faster_quick_sort import faster_quick_sort
 from lab3.merge_sort import merge_sort
 from lab3.quick_sort import quick_sort
 from lab4.heap_sort import heap_sort
-from lib import test_algorithm
+from lib import random_array, test_algorithm
 
 
 print("Input tab length: ")
@@ -23,6 +23,7 @@ algorithms_available: list[Callable[[list[int]], int | list[int] | None]] = [
 ]
 
 print("\n")
+tab = random_array(n)
 for algorithm in algorithms_available:
     print(f"Algorithm: {algorithm.__name__}")
-    test_algorithm(algorithm, n)
+    test_algorithm(algorithm, tab)
