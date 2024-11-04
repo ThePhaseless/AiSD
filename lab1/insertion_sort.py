@@ -1,4 +1,4 @@
-def insertion_sort(tab: list[int]):
+def insertion_sort(tab: list[int]) -> int:
     swaps = 0
     for i in range(1, len(tab)):
         k = tab[i]
@@ -8,4 +8,4 @@ def insertion_sort(tab: list[int]):
             j -= 1
         swaps += 1
         tab[j + 1] = k
-    return tab
+    return swaps

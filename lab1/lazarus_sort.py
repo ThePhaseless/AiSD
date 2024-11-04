@@ -1,7 +1,7 @@
 from lab1.insertion_sort import insertion_sort
 
 
-def lazarus_sort(tab: list[int]):
+def lazarus_sort(tab: list[int]) -> int:
     swaps = 0
     k = 1
     while (gap := 2*(len(tab)//(2**k))) > 0:
