@@ -18,3 +18,4 @@ def heap_sort(tab: list[int]):
     for i in range(n - 1, 0, -1):
         tab[0], tab[i] = tab[i], tab[0]
         heapify(tab, i, 0)
+    return tab

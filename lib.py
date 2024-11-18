@@ -7,8 +7,7 @@ def random_array(tab_length: int) -> list[int]:
     return [randint(-100, 100) for _ in range(tab_length)]
 
 
-def test_algorithm(sorter: Callable[[list[int]], int | list[int] | None], tab_og: list[int]):
-    tab = tab_og.copy()
+def test_algorithm(sorter: Callable[[list[int]], int | list[int]], tab: list[int]):
     start_time = time.time_ns()
     sorter(tab)
     end_time = time.time_ns()
@@ -16,4 +15,6 @@ def test_algorithm(sorter: Callable[[list[int]], int | list[int] | None], tab_og
     print(f"Sort time: {end_time - start_time} ns")
     if isinstance(tab, int):
         print("Swaps: ", tab)
+    else:
+        yield tab
     print('\n')

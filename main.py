@@ -15,7 +15,7 @@ while not n:
     except ValueError:
         print("Wrong input")
 
-algorithms_available: list[Callable[[list[int]], int | list[int] | None]] = [
+algorithms_available: list[Callable[[list[int]], int | list[int]]] = [
     merge_sort,
     heap_sort,
     quick_sort,
@@ -23,7 +23,16 @@ algorithms_available: list[Callable[[list[int]], int | list[int] | None]] = [
 ]
 
 print("\n")
-tab = random_array(n)
+tab_og = random_array(n)
+
+tab_sorted = tab_og.copy()
+tab_sorted.sort()
+
 for algorithm in algorithms_available:
+    tab = tab_og.copy()
     print(f"Algorithm: {algorithm.__name__}")
-    test_algorithm(algorithm, tab)
+    tab_new = test_algorithm(algorithm, tab)
+    if isinstance(tab_new, list):
+        tab = tab_new
+    if tab != tab_sorted:
+        raise Exception("Algorithm did not sort correctly")
